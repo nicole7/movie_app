@@ -1,0 +1,38 @@
+<% if current_user %>
+  <h1>Please enter your information below to checkout</h1>
+  <%= form_for (@order) do |f| %>
+      <% if @order.errors.any?%>
+        <div id="errors">
+          <h2><%= pluralize(@order.errors.count, "error")%> prevented this post from saving</h2>
+              <ul>
+                <% @order.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+      <%end%>
+
+    <p>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </p>
+    <div class="cx_first_name">
+      <%= f.label :cx_first_name %><br>
+      <%= f.text_field :cx_first_name %>
+    </div>
+    <div class="cx_last_name">
+      <%= f.label :cx_last_name %><br>
+      <%= f.text_field :cx_last_name %>
+    </div>
+    <div class="cc_number">
+      <%= f.label :cc_number %><br>
+      <%= f.text_field :cc_number %>
+    </div>
+    <div class="exp_date">
+      <%= f.label :exp_date %><br>
+      <%= f.text_field :exp_date %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </p>
+    <% end %>
+<% end %>
