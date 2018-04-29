@@ -3,19 +3,25 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to root_path
+    @order = Order.new(order_params)
+    current_user.orders << @order
+
+
+    if @order.save
+      redirect_to @order
     else
-      @errors = ["Your password/email combination are incorrect"]
       render 'new'
     end
   end
 
   def destroy
-    session[:user_id] = nil
+    @order[:user_id] = nil
     redirect_to root_path
+  end
+
+  private
+  def order_params
+    params.require(:order).permit(:cx_first_name, :cx_last_name, :c_number)
   end
 
 end

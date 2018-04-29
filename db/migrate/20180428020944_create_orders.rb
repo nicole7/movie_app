@@ -5,7 +5,6 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :cx_last_name
       t.integer :cc_number
       t.string :exp_date
-      t.references :user
       t.timestamps
     end
   end

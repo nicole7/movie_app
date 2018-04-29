@@ -2,10 +2,7 @@ Rails.application.routes.draw do
 
   resources :movies
   resources :users
-
-  resources :orders do
-    resources :movies
-  end
+  resources :orders
 
   root "movies#index"
 

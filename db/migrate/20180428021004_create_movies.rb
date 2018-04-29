@@ -7,7 +7,6 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.integer :seat_limit
       t.integer :ticket_price
       t.boolean :sold_out?, default: false
-      t.references :ordered_movies
       t.timestamps
     end
   end
