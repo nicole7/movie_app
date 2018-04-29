@@ -1,6 +1,4 @@
-<% if current_user %>
-  <h1>Please enter your information below to checkout</h1>
-  <%= form_for (@order) do |f| %>
+<%= form_for order do |f| %>
       <% if @order.errors.any?%>
         <div id="errors">
           <h2><%= pluralize(@order.errors.count, "error")%> prevented this post from saving</h2>
@@ -11,10 +9,7 @@
             </ul>
         </div>
       <%end%>
-    <ul>
-    <p>
-    <%= f.hidden_field :movie_id, :value => @movie.id %>
-    </p>
+
     <div class="cx_first_name">
       <%= f.label :cx_first_name %><br>
       <%= f.text_field :cx_first_name %>
@@ -31,9 +26,10 @@
       <%= f.label :exp_date %><br>
       <%= f.text_field :exp_date %>
     </div>
+    <p>
+      <%= f.hidden_field :movie_id, :value => movie.id %>
+    </p>
     <div class="actions">
       <%= f.submit %>
     </p>
-  </ul>
   <% end %>
-<% end %>

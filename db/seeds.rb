@@ -1,4 +1,4 @@
-movie = Movie.create([
+movie = Movie.create!([
   {
     title: "The Big Lebowski", day_of_week: "Tuesday", time_of_show: "12:00pm", seat_limit: 10, ticket_price: 5,
   },
