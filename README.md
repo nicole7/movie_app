@@ -1,7 +1,7 @@
 Creating user and simple signup. Admin will have their own login:
 
-username: admin
-email: admin@admin.com
+username: admin * 
+email: admin@admin.com * 
 password: admin
 
 Schema will consist of a many to many relationship between Order and Movie where Order belongs to a User
